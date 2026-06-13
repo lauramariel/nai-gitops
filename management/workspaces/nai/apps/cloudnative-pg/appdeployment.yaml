@@ -9,5 +9,8 @@ spec:
     name: cloudnative-pg-0.26.1
 
   clusterSelector:
-    matchLabels:
-      nai.nutanix.com/profile: agent-gateway
+    matchExpressions:
+      - key: nai.nutanix.com/profile
+        operator: In
+        values:
+          - agent-gateway
