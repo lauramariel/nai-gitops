@@ -7,3 +7,7 @@ spec:
   appRef:
     kind: ClusterApp
     name: cloudnative-pg-0.26.1
+
+  clusterSelector:
+    matchLabels:
+      nai.nutanix.com/profile: agent-gateway

@@ -13,6 +13,14 @@ patches:
         path: /metadata/name
         value: nkp-nai-02
 
+      - op: add
+        path: /metadata/labels/nai.nutanix.com~1profile
+        value: agent-gateway
+
+      - op: add
+        path: /metadata/labels/nai.nutanix.com~1site
+        value: dc02
+
       - op: replace
         path: /metadata/labels/konvoy.d2iq.io~1cluster-name
         value: nkp-nai-02
