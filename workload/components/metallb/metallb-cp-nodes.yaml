@@ -31,38 +31,23 @@ subjects:
     namespace: kube-system
 ---
 apiVersion: batch/v1
-kind: CronJob
+kind: Job
 metadata:
   name: metallb-remove-exclude-lb-label
   namespace: kube-system
 spec:
-  schedule: "*/5 * * * *"
-  concurrencyPolicy: Forbid
-  successfulJobsHistoryLimit: 1
-  failedJobsHistoryLimit: 1
-  jobTemplate:
+  ttlSecondsAfterFinished: 300
+  template:
     spec:
-      ttlSecondsAfterFinished: 300
-      backoffLimit: 1
-      template:
-        spec:
-          serviceAccountName: metallb-remove-exclude-lb-label
-          restartPolicy: OnFailure
-          containers:
-            - name: remove-label
-              image: docker.io/mesosphere/kubectl:v1.34.1-alpine
-              imagePullPolicy: IfNotPresent
-              command:
-                - /bin/sh
-                - -c
-                - |
-                  set -eu
-
-                  echo "Removing node.kubernetes.io/exclude-from-external-load-balancers from all nodes..."
-
-                  kubectl label nodes --all \
-                    node.kubernetes.io/exclude-from-external-load-balancers- \
-                    --overwrite
-
-                  kubectl get nodes \
-                    -L node.kubernetes.io/exclude-from-external-load-balancers
+      serviceAccountName: metallb-remove-exclude-lb-label
+      restartPolicy: Never
+      containers:
+        - name: remove-label
+          image: docker.io/mesosphere/kubectl:v1.34.1-alpine
+          command:
+            - /bin/sh
+            - -c
+            - |
+              kubectl label nodes --all \
+                node.kubernetes.io/exclude-from-external-load-balancers- \
+                --overwrite
