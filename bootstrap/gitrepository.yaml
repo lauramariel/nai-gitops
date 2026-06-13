@@ -1,0 +1,10 @@
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: nai-gitops
+  namespace: kommander
+spec:
+  interval: 1m
+  url: https://github.com/pipoe2h/nai-gitops
+  ref:
+    branch: main
