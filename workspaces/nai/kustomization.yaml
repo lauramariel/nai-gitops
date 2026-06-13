@@ -7,6 +7,6 @@ patches:
       kind: Workspace
       name: workspace-template
     patch: |-
-      - {op: replace, path: /metadata/name, value: nai}
-      - {op: replace, path: /spec/namespaceName, value: nai}
+      - {op: replace, path: /metadata/name, value: nai-workspace}
+      - {op: replace, path: /spec/namespaceName, value: nai-workspace}
       - {op: replace, path: /metadata/annotations/kommander.mesosphere.io~1display-name, value: "NAI"}
