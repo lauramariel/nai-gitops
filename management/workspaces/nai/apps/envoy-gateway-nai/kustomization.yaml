@@ -1,0 +1,11 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - appdeployment.yaml
+
+configMapGenerator:
+  - name: envoy-gateway-nai-config-overrides
+    namespace: nai-workspace
+    files:
+      - values.yaml=envoy-gateway-nai-overrides.yaml

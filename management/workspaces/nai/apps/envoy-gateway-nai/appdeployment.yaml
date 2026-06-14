@@ -1,0 +1,19 @@
+apiVersion: apps.kommander.d2iq.io/v1alpha3
+kind: AppDeployment
+metadata:
+  name: envoy-gateway-nai
+  namespace: nai-workspace
+spec:
+  appRef:
+    kind: App
+    name: envoy-gateway-nai-1.7.0
+
+  clusterSelector:
+    matchExpressions:
+      - key: nai.nutanix.com/profile
+        operator: In
+        values:
+          - agent-gateway
+
+  configOverrides:
+    name: envoy-gateway-nai-config-overrides
