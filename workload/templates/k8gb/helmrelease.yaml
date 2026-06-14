@@ -1,0 +1,52 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: k8gb
+  namespace: k8gb
+spec:
+  interval: 10m
+
+  chart:
+    spec:
+      chart: k8gb
+      version: "*"
+      sourceRef:
+        kind: HelmRepository
+        name: k8gb
+        namespace: k8gb
+
+  values:
+    k8gb:
+      clusterGeoTag: PLACEHOLDER
+      extGslbClustersGeoTags: PLACEHOLDER
+
+      reconcileRequeueSeconds: 10
+      nsRecordTTL: 60
+
+      dnsZones:
+        - loadBalancedZone: gslb.joseluisgomez.com
+          parentZone: joseluisgomez.com
+
+    extdns:
+      enabled: true
+
+      provider:
+        name: cloudflare
+
+      interval: 20s
+
+      domainFilters:
+        - joseluisgomez.com
+
+      txtPrefix: PLACEHOLDER
+      txtOwnerId: PLACEHOLDER
+
+      env:
+        - name: CF_API_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: cloudflare
+              key: token
+
+    coredns:
+      serviceType: LoadBalancer

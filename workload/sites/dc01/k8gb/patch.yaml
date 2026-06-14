@@ -1,0 +1,14 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: k8gb
+  namespace: k8gb
+spec:
+  values:
+    k8gb:
+      clusterGeoTag: nkp-nai-01
+      extGslbClustersGeoTags: nkp-nai-02
+
+    extdns:
+      txtPrefix: k8gb-nkp-nai-01-
+      txtOwnerId: nkp-nai-01
