@@ -5,6 +5,8 @@ resources:
   # - cnpg-cluster.yaml
   - ../../../templates/nai-db
 
+nameSuffix: -dc02
+
 patches:
   - path: patch.yaml
     target:

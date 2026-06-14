@@ -6,6 +6,8 @@ resources:
   - schedulebackup.yaml
   - ../../../templates/nai-db
 
+nameSuffix: -dc01
+
 patches:
   - path: patch.yaml
     target:
