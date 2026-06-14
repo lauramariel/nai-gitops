@@ -11,7 +11,11 @@ spec:
 
   bootstrap:
     recovery:
-      source: nai-db
+      source: nai-db-dc01
+
+  replica:
+    enabled: true
+    source: nai-db-dc01
 
   postgresql:
     parameters:
@@ -21,9 +25,9 @@ spec:
     enablePodMonitor: true
 
   externalClusters:
-    - name: nai-db
+    - name: nai-db-dc01
       barmanObjectStore:
-        destinationPath: s3://nai-db/dc01
+        destinationPath: s3://nai-db/dc01/nai-db
         endpointURL: http://10.42.245.71
         s3Credentials:
           accessKeyId:
@@ -32,3 +36,5 @@ spec:
           secretAccessKey:
             name: objects-creds
             key: ACCESS_SECRET_KEY
+      wal:
+        maxParallel: 8
