@@ -1,0 +1,8 @@
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmRepository
+metadata:
+  name: k8gb
+  namespace: k8gb
+spec:
+  interval: 1h
+  url: https://www.k8gb.io
