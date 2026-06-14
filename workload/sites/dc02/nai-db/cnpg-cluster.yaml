@@ -12,23 +12,21 @@ spec:
   bootstrap:
     recovery:
       source: nai-db-dc01
+      database: nai_iep
+      owner: nai-api-user
+      secret:
+        name: nai-db-app
 
   replica:
     enabled: true
     source: nai-db-dc01
 
-  postgresql:
-    parameters:
-      max_connections: "1000"
-
-  monitoring:
-    enablePodMonitor: true
-
   externalClusters:
     - name: nai-db-dc01
       barmanObjectStore:
-        destinationPath: s3://nai-db/dc01/nai-db
+        destinationPath: s3://nai-db/dc01
         endpointURL: http://10.42.245.71
+        serverName: nai-db
         s3Credentials:
           accessKeyId:
             name: objects-creds
@@ -36,5 +34,12 @@ spec:
           secretAccessKey:
             name: objects-creds
             key: ACCESS_SECRET_KEY
-      wal:
-        maxParallel: 8
+        wal:
+          maxParallel: 8
+
+  monitoring:
+    enablePodMonitor: true
+
+  postgresql:
+    parameters:
+      max_connections: "1000"
