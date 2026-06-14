@@ -2,5 +2,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-  - cnpg-cluster.yaml
+  # - cnpg-cluster.yaml
   - schedulebackup.yaml
+  - ../../../templates/nai-db
+  - patch.yaml
