@@ -25,8 +25,8 @@ spec:
       nsRecordTTL: 60
 
       dnsZones:
-        - loadBalancedZone: gslb.joseluisgomez.com
-          parentZone: joseluisgomez.com
+        - loadBalancedZone: gslb.nutanixdemo.com
+          parentZone: nutanixdemo.com
 
     extdns:
       enabled: true
@@ -37,7 +37,7 @@ spec:
       interval: 20s
 
       domainFilters:
-        - joseluisgomez.com
+        - nutanixdemo.com
 
       txtPrefix: PLACEHOLDER
       txtOwnerId: PLACEHOLDER
@@ -47,7 +47,7 @@ spec:
           valueFrom:
             secretKeyRef:
               name: cloudflare
-              key: token
+              key: cloudflare_api_token
 
     coredns:
       serviceType: LoadBalancer
