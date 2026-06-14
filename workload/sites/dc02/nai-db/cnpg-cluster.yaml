@@ -11,7 +11,7 @@ spec:
 
   bootstrap:
     recovery:
-      source: nai-db-dc01
+      source: nai-db
 
   postgresql:
     parameters:
@@ -21,7 +21,7 @@ spec:
     enablePodMonitor: true
 
   externalClusters:
-    - name: nai-db-dc01
+    - name: nai-db
       barmanObjectStore:
         destinationPath: s3://nai-db/dc01
         endpointURL: http://10.42.245.71
