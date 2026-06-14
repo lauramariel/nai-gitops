@@ -6,3 +6,12 @@ resources:
   - helmrelease.yaml
   - sa.yaml
   - clusterrolebinding.yaml
+
+configMapGenerator:
+  - name: nai-operators-values
+    namespace: nai-system
+    files:
+      - values.yaml=nai-downsized-values.yaml
+
+generatorOptions:
+  disableNameSuffixHash: true
