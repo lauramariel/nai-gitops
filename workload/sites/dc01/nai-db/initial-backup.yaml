@@ -1,0 +1,8 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Backup
+metadata:
+  name: initial-nai-db
+  namespace: nai-db
+spec:
+  cluster:
+    name: nai-db-dc01
