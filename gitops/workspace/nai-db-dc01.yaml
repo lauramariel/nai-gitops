@@ -14,8 +14,7 @@ spec:
   wait: true
   timeout: 10m
   dependsOn:
-    - name: nai-workspace-apps
-    - name: management-projects
+    - name: nai-workload-components-dc01
   kubeConfig:
     secretRef:
       name: nkp-nai-01-kubeconfig
