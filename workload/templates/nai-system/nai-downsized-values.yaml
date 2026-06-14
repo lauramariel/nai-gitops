@@ -9,7 +9,7 @@ gateway:
 naiDatabase:
   external: true
   postgresql:
-    postgresHost: nai-db-rw.nai-db.svc.cluster.local
+    postgresHost: nai-db-dc01-rw.nai-db.svc.cluster.local
     postgresSSLMode: require
   resources:
     requests:
