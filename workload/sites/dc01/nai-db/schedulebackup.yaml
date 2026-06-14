@@ -7,4 +7,4 @@ spec:
   schedule: "0 */15 * * * *"
   backupOwnerReference: self
   cluster:
-    name: nai-db
+    name: nai-db-dc01

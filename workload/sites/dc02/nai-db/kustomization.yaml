@@ -4,4 +4,12 @@ kind: Kustomization
 resources:
   # - cnpg-cluster.yaml
   - ../../../templates/nai-db
-  - patch.yaml
+
+patches:
+  - path: patch.yaml
+    target:
+      group: postgresql.cnpg.io
+      version: v1
+      kind: Cluster
+      name: nai-db
+      namespace: nai-db
