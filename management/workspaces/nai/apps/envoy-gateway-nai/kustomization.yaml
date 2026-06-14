@@ -9,3 +9,6 @@ configMapGenerator:
     namespace: nai-workspace
     files:
       - values.yaml=envoy-gateway-nai-overrides.yaml
+
+generatorOptions:
+  disableNameSuffixHash: true
