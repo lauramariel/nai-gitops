@@ -20,7 +20,7 @@ spec:
   sourceRef:
     kind: GitRepository
     name: nai-gitops
-  path: ./gitops
+  path: ./gitops/bootstrap
   prune: true
   wait: true
   timeout: 5m
