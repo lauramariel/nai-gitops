@@ -4,7 +4,7 @@ kind: Kustomization
 namespace: nai-system
 
 resources:
-  - ../../../templates/nai-system
+  - ../../../../templates/nai-system
 
 configMapGenerator:
   - name: nai-operators-values

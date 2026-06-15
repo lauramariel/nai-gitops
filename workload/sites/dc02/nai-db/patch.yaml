@@ -1,7 +1,7 @@
 apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
-  name: nai-db-dc02
+  name: nai-db
   namespace: nai-db
 spec:
   bootstrap:
@@ -21,7 +21,6 @@ spec:
       barmanObjectStore:
         destinationPath: s3://nai-cnpg-dc01/
         endpointURL: http://10.42.245.71
-        # serverName: nai-db
         s3Credentials:
           accessKeyId:
             name: objects-creds
@@ -31,3 +30,4 @@ spec:
             key: ACCESS_SECRET_KEY
         wal:
           maxParallel: 8
+      retentionPolicy: "30d"

@@ -1,0 +1,24 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: nai-db
+  namespace: nai-db
+spec:
+  replica:
+    enabled: false
+
+  backup:
+    barmanObjectStore:
+      destinationPath: s3://nai-cnpg-dc02/
+      endpointURL: http://10.42.245.71
+      s3Credentials:
+        accessKeyId:
+          name: objects-creds
+          key: ACCESS_KEY_ID
+        secretAccessKey:
+          name: objects-creds
+          key: ACCESS_SECRET_KEY
+      wal:
+        compression: gzip
+        maxParallel: 8
+    retentionPolicy: "30d"
