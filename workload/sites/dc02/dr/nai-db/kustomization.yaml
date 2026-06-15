@@ -7,10 +7,32 @@ resources:
 nameSuffix: -dc02
 
 patches:
-  - path: patch.yaml
-    target:
+  - target:
       group: postgresql.cnpg.io
       version: v1
       kind: Cluster
       name: nai-db
       namespace: nai-db
+    patch: |-
+      - op: replace
+        path: /spec/replica/enabled
+        value: false
+      - op: remove
+        path: /spec/replica/source
+      - op: add
+        path: /spec/backup
+        value:
+          barmanObjectStore:
+            destinationPath: s3://nai-cnpg-dc02/
+            endpointURL: http://10.42.245.71
+            s3Credentials:
+              accessKeyId:
+                name: objects-creds
+                key: ACCESS_KEY_ID
+              secretAccessKey:
+                name: objects-creds
+                key: ACCESS_SECRET_KEY
+            wal:
+              compression: gzip
+              maxParallel: 8
+          retentionPolicy: "30d"
