@@ -4,14 +4,12 @@ kind: Kustomization
 resources:
   - ../../nai-db
 
-nameSuffix: -dc02
-
 patches:
   - target:
       group: postgresql.cnpg.io
       version: v1
       kind: Cluster
-      name: nai-db
+      name: nai-db-dc02
       namespace: nai-db
     patch: |-
       - op: replace
