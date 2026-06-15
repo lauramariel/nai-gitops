@@ -3,12 +3,3 @@ kind: Kustomization
 
 resources:
   - helmrelease.yaml
-
-configMapGenerator:
-  - name: nai-operators-values
-    namespace: nai-system
-    files:
-      - values.yaml=../nai-downsized-values.yaml
-
-generatorOptions:
-  disableNameSuffixHash: true
