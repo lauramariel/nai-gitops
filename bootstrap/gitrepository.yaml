@@ -6,7 +6,7 @@ metadata:
   namespace: kommander
 spec:
   interval: 1m
-  url: https://github.com/pipoe2h/nai-gitops
+  url: https://github.com/lauramariel/nai-gitops
   ref:
     branch: main
 ---
