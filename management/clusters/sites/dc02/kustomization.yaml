@@ -43,11 +43,11 @@ patches:
 
       - op: replace
         path: /spec/topology/variables/0/value/addons/serviceLoadBalancer/configuration/addressRanges/0/start
-        value: "10.42.245.54"
+        value: "10.8.39.142"
 
       - op: replace
         path: /spec/topology/variables/0/value/addons/serviceLoadBalancer/configuration/addressRanges/0/end
-        value: "10.42.245.54"
+        value: "10.8.39.142"
 
       - op: replace
         path: /spec/topology/variables/0/value/controlPlane/nutanix/machineDetails/cluster/name
@@ -68,7 +68,7 @@ patches:
 
       - op: replace
         path: /spec/topology/variables/0/value/nutanix/controlPlaneEndpoint/host
-        value: "10.42.245.53"
+        value: "10.8.39.143"
 
       - op: replace
         path: /spec/topology/variables/0/value/nutanix/prismCentralEndpoint/url

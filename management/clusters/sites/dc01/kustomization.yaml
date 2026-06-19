@@ -43,15 +43,15 @@ patches:
 
       - op: replace
         path: /spec/topology/variables/0/value/addons/serviceLoadBalancer/configuration/addressRanges/0/start
-        value: "10.42.245.52"
+        value: "10.8.39.140"
 
       - op: replace
         path: /spec/topology/variables/0/value/addons/serviceLoadBalancer/configuration/addressRanges/0/end
-        value: "10.42.245.52"
+        value: "10.8.39.140"
 
       - op: replace
         path: /spec/topology/variables/0/value/controlPlane/nutanix/machineDetails/cluster/name
-        value: "PHX-MKT245"
+        value: "RNO-SPOC004-4"
 
       - op: replace
         path: /spec/topology/variables/0/value/controlPlane/nutanix/machineDetails/image/name
@@ -59,7 +59,7 @@ patches:
 
       - op: replace
         path: /spec/topology/variables/0/value/controlPlane/nutanix/machineDetails/subnets/0/name
-        value: "primary"
+        value: "secondary"
 
       - op: add
         path: /spec/topology/variables/0/value/globalImageRegistryMirror
@@ -68,11 +68,11 @@ patches:
 
       - op: replace
         path: /spec/topology/variables/0/value/nutanix/controlPlaneEndpoint/host
-        value: "10.42.245.51"
+        value: "10.8.39.141"
 
       - op: replace
         path: /spec/topology/variables/0/value/nutanix/prismCentralEndpoint/url
-        value: "https://mkt245-pc.internal.nutanixdemo.com:9440"
+        value: "https://10-8-39-7.sslip.nutanixdemo.com:9440"
 
 # replacements:
 #   - source:

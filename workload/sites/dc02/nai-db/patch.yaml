@@ -20,7 +20,7 @@ spec:
     - name: nai-db-dc01
       barmanObjectStore:
         destinationPath: s3://nai-cnpg-dc01/
-        endpointURL: http://10.42.245.71
+        endpointURL: http://10.8.39.139
         s3Credentials:
           accessKeyId:
             name: objects-creds
