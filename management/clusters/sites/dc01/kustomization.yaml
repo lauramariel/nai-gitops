@@ -51,7 +51,7 @@ patches:
 
       - op: replace
         path: /spec/topology/variables/0/value/controlPlane/nutanix/machineDetails/cluster/name
-        value: "RNO-SPOC004-4"
+        value: "RNO-SPOC002-4"
 
       - op: replace
         path: /spec/topology/variables/0/value/controlPlane/nutanix/machineDetails/image/name
@@ -72,7 +72,7 @@ patches:
 
       - op: replace
         path: /spec/topology/variables/0/value/nutanix/prismCentralEndpoint/url
-        value: "https://10-8-39-7.sslip.nutanixdemo.com:9440"
+        value: "https://10-8-31-7.sslip.nutanixdemo.com:9440"
 
 # replacements:
 #   - source:
