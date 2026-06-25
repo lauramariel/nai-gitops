@@ -28,7 +28,7 @@ spec:
   backup:
     barmanObjectStore:
       destinationPath: s3://nai-db/dc01
-      endpointURL: http://10.8.39.139
+      endpointURL: http://10.8.31.139
       s3Credentials:
         accessKeyId:
           name: objects-creds
